@@ -1,0 +1,18 @@
+:root{
+    --bg-color: #f4f4f5;
+    --color: #171717;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+  /* height: 100vh; */
+  font-family: 'Lugrasimo', cursive;
+  background-color: var(--bg-color);
+  color: var(--color);
+  overflow-x: hidden;
+}

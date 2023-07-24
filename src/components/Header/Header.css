@@ -1,0 +1,11 @@
+
+.header{
+    border-bottom: 2px solid #404040;
+    margin-left: 6rem;
+    width: 100vw;
+}
+.logo{
+  width: 40px;
+  height: 35px;
+  border-radius: 50%;
+}

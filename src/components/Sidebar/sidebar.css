@@ -1,0 +1,11 @@
+.sidebar{
+    /* grid-area: sidebar; */
+    height: 100vh;
+    /* margin: 1rem; */
+    background-color: #292524;
+    width: 6rem;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    height: 100vh;
+}

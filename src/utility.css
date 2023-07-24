@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+
+
+
+body{
+    line-height: 1.5;
+}
+
+.d-flex{
+    display: flex;
+
+}
+.d-grid{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    /* grid-template-areas: 'sidebar main main main' */
+                         
+                         
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.j-center{
+    justify-content: center;
+}
+.j-between{
+    justify-content: space-between;
+}
+.j-around{
+    justify-content: space-around;
+}
+
+.align-self{
+    align-items: flex-end;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.gap-sm{
+    gap: 0.5rem;
+}
+.gap-medium{
+    gap: 1rem;
+}
+.pd-8{
+    padding: 0.5rem;
+}
+.pd-16{
+    padding: 1rem;
+}
+.pd-32{
+    padding: 2rem;
+}
+
+.h1{
+    font-size: 2rem;
+    
+}
+
+/* border */
+.border-2px{
+   border: 2px solid;
+}
+
+.fix-pos{
+    position: fixed;
+    bottom: 0;
+}

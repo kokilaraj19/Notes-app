@@ -1,0 +1,13 @@
+.Notes-Container{
+    width: 400px;
+    /* border: 2px solid; */
+    border-radius: 5px;
+    padding: 0.5rem 0.8rem;
+    /* border-top: 10px solid green; */
+    border-top-left-radius: 10px;
+    
+}
+
+.content-container{
+    text-overflow: wrap;
+}
