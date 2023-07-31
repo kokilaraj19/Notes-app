@@ -1,11 +1,14 @@
 .Notes-Container{
-    width: 400px;
-    /* border: 2px solid; */
+    width: 20rem;
     border-radius: 5px;
     padding: 0.5rem 0.8rem;
-    /* border-top: 10px solid green; */
     border-top-left-radius: 10px;
-    
+    height: fit-content; 
+}
+
+
+.main-notes-container{
+    width: 100%;
 }
 
 .content-container{

@@ -1,29 +1,99 @@
 import './NotesCard.css'
-import {MdDeleteOutline, MdOutlineArchive} from 'react-icons/md'
+import {MdDeleteOutline, MdOutlineArchive,MdUnarchive} from 'react-icons/md'
+import {BsPin,BsPinFill} from 'react-icons/bs'
+// import { useState } from 'react'
 
 
-// import { useCtxt } from '../../Context/Context'
+import { useCtxt } from '../../Context/Context'
 
 export const NotesCard = (props)=>{
-    // const printSomething = (e)=> {
-    //       console.log(e)
-    // }
-    // const {archivedNotes,setArchivedNotes} = useCtxt();
+    // const [isPinned,setIsPin] = useState("false");
+  
+    const {addedNotes,setAddedNotes,pinnedNotes,setPinnedNotes,archivedNotes,setArchivedNotes,deletedNotes,setdeletedNotes} = useCtxt();
+    const {id,title,notes} = props;
+    
 
-    const archiveHandler = () => {
+    const FindtheValue = (notes,id) => {
+             return  notes.some((note) => note.id === id)
     }
 
+    // const isPinned = FindisPinned(pinnedNotes,id)
+
+    const pinnedHandler = (id) => {
+        //   console.log(id);
+          const FilteredArray = addedNotes.filter((note) => note.id === id);
+          setPinnedNotes([...pinnedNotes, ...FilteredArray])
+          setAddedNotes(addedNotes.filter((note) => note.id !== props.id))
+          
+    }
+    
+
+    const unPinnedHandler = (id) =>{
+        const FilteredArray = pinnedNotes.filter((note) => note.id === id);
+        setAddedNotes([...addedNotes, ...FilteredArray])
+        setPinnedNotes(pinnedNotes.filter((note) => note.id !== id))
+    }
+
+    const archivedHandler = (id) =>{
+        
+        if(FindtheValue(pinnedNotes,id) ){
+            const FilteredArray = pinnedNotes.filter((note) => note.id === id)
+            setArchivedNotes([...archivedNotes, ...FilteredArray])
+            setPinnedNotes(addedNotes.filter((note) => note.id !==id))
+        }
+        else{
+            const FilteredArray = addedNotes.filter((note) => note.id === id);
+            setArchivedNotes([...archivedNotes, ...FilteredArray])
+            setAddedNotes(addedNotes.filter((note) => note.id !==id))
+        } 
+        
+          
+    }
+    const unarchiveHandler = (id) => {
+        const FilteredArray = archivedNotes.filter((note) => note.id === id);
+        setAddedNotes([...addedNotes,...FilteredArray])
+        setArchivedNotes(archivedNotes.filter((note) => note.id !== id))
+    }
+
+    const setContent = (notes,id) => {
+        const FilteredArray = notes.filter((note) => note.id === id);
+        setdeletedNotes([...deletedNotes,...FilteredArray]);
+
+    }
+   
+    const deleteHandler = (id) =>{
+          if(FindtheValue(addedNotes,id)){
+            setContent(addedNotes,id)
+            setAddedNotes(addedNotes.filter((note)=> note.id !==id))
+          }
+          else if(FindtheValue(pinnedNotes,id)){
+            setContent(pinnedNotes,id)
+            setPinnedNotes(pinnedNotes.filter((note) => note.id !==id))
+          }
+          else if(FindtheValue(archivedNotes,id)){
+            setContent(archivedNotes,id)
+            setArchivedNotes(archivedNotes.filter((note) => note.id !== id))
+          }
+        
+    }
+    console.log(deletedNotes);
+
     return (
-        <div className="Notes-Container border-2px">
+        <div key={props.id} className="Notes-Container border-2px">
             <div className='subject-container d-flex j-between'>
-                <p>{props.title}</p>
-                 <span><MdDeleteOutline /><MdOutlineArchive onClick={archiveHandler} /></span>
+                <p>{title}</p>
+                 <span>
+                   {FindtheValue(deletedNotes,id) ? (<MdDeleteOutline onClick={() => deleteHandler(id)} />): (<MdDeleteOutline onClick={() => deleteHandler(id)} />)}
+                   {FindtheValue(deletedNotes,id) ? "" : !FindtheValue(archivedNotes,id) ? <MdOutlineArchive onClick={()=> archivedHandler(id)} /> : <MdUnarchive onClick={() => unarchiveHandler(id)}/>}                  
+                   { FindtheValue(deletedNotes,id) ? "" : FindtheValue(archivedNotes,id) ? "" : FindtheValue(pinnedNotes,id) ? <BsPinFill onClick={() => unPinnedHandler(id)}/> :
+                   <BsPin onClick={() => pinnedHandler(id)} />}
+                 </span>
             </div>
             <div className='content-container'>
-                <p>{props.notes}</p>
+                <p>{notes}</p>
                 <p>Mark as important</p>
             </div>
-        
+            {/* {console.log(props.title)} */}
         </div>
     )
 }

@@ -18,7 +18,7 @@ export const InputNotes = () =>{
      
 
     return (
-        <div className="d-flex flex-column align-center input-container border-2px">
+        <div className="d-flex flex-column input-container border-2px">
             <input onChange={(e) => setTitle(e.target.value) } type="text" placeholder="Enter Title" value={isSet ? "": title}/>
             <textarea onChange={(e) => setNotesContent(e.target.value)}  rows={10} placeholder='write your notes' value={notesContent}/>
             <button onClick = {addingNotes} className='add-notes pd-8 ds' disabled = {title === "" || notesContent === ""}><FaPlus /></button>

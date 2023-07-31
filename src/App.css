@@ -1,6 +1,9 @@
 :root{
-    --bg-color: #f4f4f5;
+    
+    --bg-color: #F9F5F6;
     --color: #171717;
+    --primary-color: #0A2647;
+    --secondary-color: #205295;
 }
 
 *{
@@ -13,6 +16,6 @@ body{
   /* height: 100vh; */
   font-family: 'Lugrasimo', cursive;
   background-color: var(--bg-color);
-  color: var(--color);
+  color: var(--primary-color);
   overflow-x: hidden;
 }

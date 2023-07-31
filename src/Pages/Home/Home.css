@@ -1,7 +1,7 @@
 .main{
    position: relative;
-   left: 9rem;
-   width: 100vw;
+   left: 6.5rem;
+   width: 80%;
 }
 
 .main-container{
@@ -10,3 +10,7 @@
 /* .app{
    position: relative;
 } */
+
+.important{
+   align-self: flex-end;
+}

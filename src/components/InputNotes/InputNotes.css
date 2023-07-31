@@ -3,8 +3,8 @@
     /* grid-area: InputNotes; */
     width: 30rem;
     margin: 1rem;
-    align-self: center;
-    justify-content: center;
+    /* align-self: center; */
+    /* justify-content: center; */
     position: relative;
     
 }

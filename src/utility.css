@@ -6,6 +6,11 @@ body{
     line-height: 1.5;
 }
 
+.logo-bg{
+    background-color: var(--primary-color);
+    color: #f4f4f4;
+}
+
 .d-flex{
     display: flex;
 
@@ -43,6 +48,7 @@ body{
     align-items: center;
 }
 
+
 .gap-sm{
     gap: 0.5rem;
 }
@@ -64,6 +70,19 @@ body{
     
 }
 
+/* list */
+
+li{
+    list-style: none;
+}
+
+li a{
+    text-decoration: none;
+    color: #a8a29e;
+}
+
+
+
 /* border */
 .border-2px{
    border: 2px solid;
@@ -72,4 +91,11 @@ body{
 .fix-pos{
     position: fixed;
     bottom: 0;
+}
+
+/* ICON-STYLING */
+
+.icon-2x{
+    width: 5rem;
+    height: 3rem;
 }
