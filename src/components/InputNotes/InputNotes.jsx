@@ -5,7 +5,7 @@ import {v4 as uuid} from 'uuid'
 
 
 export const InputNotes = () =>{
-    const {title,setTitle,notesContent,setNotesContent,addedNotes,setAddedNotes} = useCtxt();
+    const {title, setTitle, notesContent, setNotesContent, addedNotes, setAddedNotes} = useCtxt();
     let isSet = false;
     const addingNotes = () =>{
         
@@ -19,9 +19,9 @@ export const InputNotes = () =>{
 
     return (
         <div className="d-flex flex-column input-container border-2px">
-            <input onChange={(e) => setTitle(e.target.value) } type="text" placeholder="Enter Title" value={isSet ? "": title}/>
-            <textarea onChange={(e) => setNotesContent(e.target.value)}  rows={10} placeholder='write your notes' value={notesContent}/>
-            <button onClick = {addingNotes} className='add-notes pd-8 ds' disabled = {title === "" || notesContent === ""}><FaPlus /></button>
+            <input className="border-bottom" onChange={(e) => setTitle(e.target.value) } type="text" placeholder="Subject" value={isSet ? "": title}/>
+            <textarea onChange={(e) => setNotesContent(e.target.value)}  rows={10} placeholder='Type here....' value={notesContent}/>
+            <button onClick = {addingNotes} className={`add-notes pd-8 ds ${title===""||notesContent==="" ? "": "logo-bg"}`} disabled = {title === "" || notesContent === ""}><FaPlus width="2rem" /></button>
         </div>
     )
 }

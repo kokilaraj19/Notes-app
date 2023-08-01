@@ -11,6 +11,8 @@ body{
     color: #f4f4f4;
 }
 
+
+
 .d-flex{
     display: flex;
 
@@ -93,8 +95,21 @@ li a{
     bottom: 0;
 }
 
+.border-bottom{
+    border-bottom: 2px solid #205295;
+}
+
 /* ICON-STYLING */
 
+.icon> *{
+    width: 3rem;
+    height: 2rem;
+    
+}
+.icon-1x>*{
+    width:1.8rem;
+    height: 1.5rem
+}
 .icon-2x{
     width: 5rem;
     height: 3rem;

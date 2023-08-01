@@ -39,7 +39,7 @@ export const NotesCard = (props)=>{
         if(FindtheValue(pinnedNotes,id) ){
             const FilteredArray = pinnedNotes.filter((note) => note.id === id)
             setArchivedNotes([...archivedNotes, ...FilteredArray])
-            setPinnedNotes(addedNotes.filter((note) => note.id !==id))
+            setPinnedNotes(pinnedNotes.filter((note) => note.id !==id))
         }
         else{
             const FilteredArray = addedNotes.filter((note) => note.id === id);
@@ -76,22 +76,23 @@ export const NotesCard = (props)=>{
           }
         
     }
-    console.log(deletedNotes);
+    // console.log(deletedNotes);
 
     return (
         <div key={props.id} className="Notes-Container border-2px">
-            <div className='subject-container d-flex j-between'>
+            <div className='subject-container pd-16 logo-bg d-flex j-between'>
                 <p>{title}</p>
-                 <span>
-                   {FindtheValue(deletedNotes,id) ? (<MdDeleteOutline onClick={() => deleteHandler(id)} />): (<MdDeleteOutline onClick={() => deleteHandler(id)} />)}
-                   {FindtheValue(deletedNotes,id) ? "" : !FindtheValue(archivedNotes,id) ? <MdOutlineArchive onClick={()=> archivedHandler(id)} /> : <MdUnarchive onClick={() => unarchiveHandler(id)}/>}                  
+                 <span className='icon icon-1x'>                 
                    { FindtheValue(deletedNotes,id) ? "" : FindtheValue(archivedNotes,id) ? "" : FindtheValue(pinnedNotes,id) ? <BsPinFill onClick={() => unPinnedHandler(id)}/> :
                    <BsPin onClick={() => pinnedHandler(id)} />}
                  </span>
             </div>
-            <div className='content-container'>
+            <div className='content-container d-flex flex-column gap-sm pd-8'>
                 <p>{notes}</p>
-                <p>Mark as important</p>
+                <span className='d-flex icon icon-1x'>
+                  {FindtheValue(deletedNotes,id) ? (<MdDeleteOutline onClick={() => deleteHandler(id)} />): (<MdDeleteOutline onClick={() => deleteHandler(id)} />)}
+                  {FindtheValue(deletedNotes,id) ? "" : !FindtheValue(archivedNotes,id) ? <MdOutlineArchive onClick={()=> archivedHandler(id)} /> : <MdUnarchive onClick={() => unarchiveHandler(id)}/>}   
+                </span>
             </div>
             {/* {console.log(props.title)} */}
         </div>

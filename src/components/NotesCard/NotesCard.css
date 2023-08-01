@@ -1,14 +1,20 @@
+
 .Notes-Container{
     width: 20rem;
     border-radius: 5px;
-    padding: 0.5rem 0.8rem;
-    border-top-left-radius: 10px;
     height: fit-content; 
+
 }
 
 
-.main-notes-container{
+/* .main-notes-container{
     width: 100%;
+} */
+
+.icon{
+    margin-left: auto;
+}
+.subject-container{
 }
 
 .content-container{

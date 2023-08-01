@@ -1,16 +1,21 @@
 .main{
    position: relative;
    left: 6.5rem;
-   width: 80%;
+   width: 100%;
+   /* margin-left: 5.5rem; */
 }
 
-.main-container{
-   
+.main-notes-container{
+   width: 100%;
 }
 /* .app{
    position: relative;
 } */
 
 .important{
-   align-self: flex-end;
+
+   flex: 1;
+   margin: 1rem 1rem 0 1rem;
+   height: 600px;
+   position: sticky
 }

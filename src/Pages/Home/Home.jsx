@@ -10,14 +10,14 @@ export const Home = () =>{
     return (
         <>
           <Header />
-             <div className='d-flex'>
+             <div className='d-flex gap-medium'>
                <Sidebar />
                <div className='main d-flex flex-column gap-medium pd-16'>
                  <InputNotes />
                  <div className='main-notes-container pd-16 d-flex flex-column gap-sm'>
-                    <h1>Archived Notes</h1>
+                    {pinnedNotes.length>0? <h1>Pinned Notes</h1> : ""}
                     <div className='d-flex gap-medium flex-wrap '>{
-                      pinnedNotes.length > 0 ? pinnedNotes.map((note) => <NotesCard key={note.id} id={note.id} title={note.title} notes = {note.notesContent} /> ): <p>No notes added</p>
+                      pinnedNotes.length > 0 ? pinnedNotes.map((note) => <NotesCard key={note.id} id={note.id} title={note.title} notes = {note.notesContent} /> ): ""
                       }
                     </div>
                  </div>
@@ -29,9 +29,15 @@ export const Home = () =>{
                     </div>
                  </div>
                </div>
-               <aside className="important">
+               {/* <aside className="important d-flex flex-column align-center border-2px">
                    <h2>Important!!!!</h2>
-               </aside>
+                   <div className="imporatant-notes">
+                    {
+                       pinnedNotes.length > 0 ? pinnedNotes.map((note) => <NotesCard key={note.id} id={note.id} title={note.title} notes = {note.notesContent} /> ): ""
+                    }
+                   </div>
+                   
+               </aside> */}
              </div>
 
            <Footer />
