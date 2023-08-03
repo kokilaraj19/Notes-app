@@ -7,7 +7,7 @@ export const Archive = () => {
       <Header />
       <Sidebar />
       
-      <div className="main">
+      <div className="main left-9">
         <h1 className="h1">Archived Notes</h1>
         <div className="d-flex gap-medium flex-wrap">
         {

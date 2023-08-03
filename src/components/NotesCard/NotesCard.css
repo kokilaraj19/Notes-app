@@ -1,9 +1,15 @@
 
 .Notes-Container{
     width: 20rem;
-    border-radius: 5px;
     height: fit-content; 
+    border-radius: 10px;
+    border-top: 5px solid var(--secondary-color);
+    transition: all 0.5s;
 
+}
+
+.Notes-Container:hover{
+    box-shadow: 3px 3px 4px var(--secondary-color);
 }
 
 
@@ -15,8 +21,13 @@
     margin-left: auto;
 }
 .subject-container{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .content-container{
     text-overflow: wrap;
+    /* border: 2px solid var(--primary-color); */
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }

@@ -23,7 +23,10 @@ export const NotesCard = (props)=>{
         //   console.log(id);
           const FilteredArray = addedNotes.filter((note) => note.id === id);
           setPinnedNotes([...pinnedNotes, ...FilteredArray])
-          setAddedNotes(addedNotes.filter((note) => note.id !== props.id))
+          localStorage.setItem("pinnedNotes",JSON.stringify([...pinnedNotes,...FilteredArray]))
+          const addedNotesFilter=addedNotes.filter((note) => note.id !== props.id)
+          setAddedNotes(addedNotesFilter)
+          localStorage.setItem("addedNotes",JSON.stringify(addedNotesFilter))
           
     }
     
@@ -31,7 +34,10 @@ export const NotesCard = (props)=>{
     const unPinnedHandler = (id) =>{
         const FilteredArray = pinnedNotes.filter((note) => note.id === id);
         setAddedNotes([...addedNotes, ...FilteredArray])
-        setPinnedNotes(pinnedNotes.filter((note) => note.id !== id))
+        localStorage.setItem("addedNotes",JSON.stringify([...addedNotes, ...FilteredArray]))
+        const pinnedNotesFilter = pinnedNotes.filter((note) => note.id !== id)
+        setPinnedNotes(pinnedNotesFilter)
+        localStorage.setItem("pinnedNotes",JSON.stringify(pinnedNotesFilter))
     }
 
     const archivedHandler = (id) =>{
@@ -39,12 +45,16 @@ export const NotesCard = (props)=>{
         if(FindtheValue(pinnedNotes,id) ){
             const FilteredArray = pinnedNotes.filter((note) => note.id === id)
             setArchivedNotes([...archivedNotes, ...FilteredArray])
+            localStorage.setItem("archivedNotes",JSON.stringify([...archivedNotes, ...FilteredArray]))
             setPinnedNotes(pinnedNotes.filter((note) => note.id !==id))
+            localStorage.setItem("pinnedNotes",JSON.stringify(pinnedNotes.filter((note) => note.id !==id)))
         }
         else{
             const FilteredArray = addedNotes.filter((note) => note.id === id);
             setArchivedNotes([...archivedNotes, ...FilteredArray])
+            localStorage.setItem("archivedNotes",JSON.stringify([...archivedNotes, ...FilteredArray]))
             setAddedNotes(addedNotes.filter((note) => note.id !==id))
+            localStorage.setItem("addedNotes",JSON.stringify(addedNotes.filter((note) => note.id !==id)))
         } 
         
           
@@ -52,12 +62,17 @@ export const NotesCard = (props)=>{
     const unarchiveHandler = (id) => {
         const FilteredArray = archivedNotes.filter((note) => note.id === id);
         setAddedNotes([...addedNotes,...FilteredArray])
+        localStorage.setItem("addedNotes",JSON.stringify([...addedNotes,...FilteredArray]))
         setArchivedNotes(archivedNotes.filter((note) => note.id !== id))
+        localStorage.setItem("archivedNotes",JSON.stringify(archivedNotes.filter((note) => note.id !== id)))
     }
 
     const setContent = (notes,id) => {
         const FilteredArray = notes.filter((note) => note.id === id);
-        setdeletedNotes([...deletedNotes,...FilteredArray]);
+        const timeSet = FilteredArray.map((note) => ({...note,createdAt: new Date()}))
+        console.log(timeSet);
+        setdeletedNotes([...deletedNotes,...timeSet]);
+        localStorage.setItem("deletedNotes", JSON.stringify([...deletedNotes,...timeSet]))
 
     }
    
@@ -65,14 +80,21 @@ export const NotesCard = (props)=>{
           if(FindtheValue(addedNotes,id)){
             setContent(addedNotes,id)
             setAddedNotes(addedNotes.filter((note)=> note.id !==id))
+            localStorage.setItem("addedNotes",JSON.stringify(addedNotes.filter((note)=> note.id !==id)))
           }
           else if(FindtheValue(pinnedNotes,id)){
             setContent(pinnedNotes,id)
             setPinnedNotes(pinnedNotes.filter((note) => note.id !==id))
+            localStorage.setItem("pinnedNotes",JSON.stringify(pinnedNotes.filter((note) => note.id !==id)))
           }
           else if(FindtheValue(archivedNotes,id)){
             setContent(archivedNotes,id)
             setArchivedNotes(archivedNotes.filter((note) => note.id !== id))
+            localStorage.setItem("archivedNotes", JSON.stringify(archivedNotes.filter((note) => note.id !== id)))
+          }
+          else{
+            setdeletedNotes(deletedNotes.filter((note) => note.id !==id))
+            localStorage.setItem("deletedNotes", JSON.stringify(deletedNotes.filter((note) => note.id !==id)))
           }
         
     }

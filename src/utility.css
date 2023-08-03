@@ -10,6 +10,10 @@ body{
     background-color: var(--primary-color);
     color: #f4f4f4;
 }
+.secondary-bg{
+    background-color: var(--secondary-color);
+    color: #f4f5f4;
+}
 
 
 
@@ -87,7 +91,7 @@ li a{
 
 /* border */
 .border-2px{
-   border: 2px solid;
+   border: 3px solid #205295;
 }
 
 .fix-pos{
@@ -113,4 +117,11 @@ li a{
 .icon-2x{
     width: 5rem;
     height: 3rem;
+}
+
+.left-7{
+    left: 7rem;
+}
+.left-9{
+    left: 9rem;
 }

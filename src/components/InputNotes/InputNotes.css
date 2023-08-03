@@ -1,21 +1,27 @@
 
 .input-container{
-    /* grid-area: InputNotes; */
     width: 30rem;
     margin: 1rem;
     align-self: center; 
-    /* justify-content: center;*/
     position: relative;
+    border-radius: 5px;
     
 }
 
-.input-container input[type=text],textarea{
-    /* width: 30rem; */
+.input-container input[type=text], textarea{
     outline: none;
-    border: none;
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
     resize: none;
-    padding: 0.5rem 0.5rem 0;
+    padding: 0.5rem;
     font-size: 1rem;
+    background-color: transparent; 
+    margin-bottom: 0.5rem;
+}
+
+.input-container input[type=text]:focus-within, textarea:focus-within{
+    background-color: #fff;
+    color: var(--secondary-color);
 }
 
 .add-notes{
